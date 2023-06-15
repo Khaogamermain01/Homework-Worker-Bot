@@ -10,6 +10,7 @@ const client = new Discord.Client({
     ]
 });
 const path = require("path");
+require("./Web.js")()
 const fs = require("fs");
 
 subjects = [{
@@ -115,7 +116,7 @@ client.on('messageCreate', message => {
     if (message.mentions.users.has(client.user.id) || message.mentions.users.has("1118174109801656451")) { 
         const presence = message.guild.members.cache.get("1118174109801656451").presence;
         if (!(presence && presence.status) || presence.status === "offline") {
-            message.channel.send(`<@${message.author.id}>,\n[EN] JJ is currently offline. Please wait a moment. Please do not contact me after 10 PM.\n[TH] JJ ออฟไลน์อยู่ โปรดรอสักครู่. โปรดอย่าติดต่อฉันหลังเวลา 22.00 น.`)
+            message.channel.send(`<@${message.author.id}>,\n[EN] JJ is currently offline. Please wait a moment. Please do not contact JJ after 10 PM.\n[TH] JJ ออฟไลน์อยู่ โปรดรอสักครู่. โปรดอย่าติดต่อ JJ หลังเวลา 22.00 น.`)
         }
     }
 });
