@@ -14,51 +14,63 @@ require("./Web.js")()
 const fs = require("fs");
 
 subjects = [{
-        name: "Math | คณิตศาสตร์",
+        name: "Math",
+        name_localizations: { th: 'คณิตศาสตร์' },
         value: "ma"
     },
     {
-        name: "Science Core | วิทยาศาสตร์",
+        name: "Science Core",
+        name_localizations: { th: 'วิทยาศาสตร์' },
         value: "sc"
     },
     {
-        name: "Science Supplemental | เสริมวิทยาศาสตร์",
+        name: "Science Supplemental",
+        name_localizations: { th: 'เสริมวิทยาศาสตร์' },
         value: "ss"
     },
     {
-        name: "Thai | ภาษาไทย",
+        name: "Thai",
+        name_localizations: { th: 'ภาษาไทย' },
         value: "th"
     },
     {
-        name: "English Grammar | ไวยากรณ์ภาษาอังกฤษ",
+        name: "English Grammar",
+        name_localizations: { th: 'ไวยากรณ์ภาษาอังกฤษ' },
         value: "eg"
     },
     {
-        name: "English Literature | วรรณคดีอังกฤษ",
+        name: "English Literature",
+        name_localizations: { th: 'วรรณคดีอังกฤษ' },
         value: "el"
     },
     {
-        name: "Computer Science | วิทยาศาสตร์คอมพิวเตอร์",
+        name: "Computer Science",
+        name_localizations: { th: 'วิทยาศาสตร์คอมพิวเตอร์' },
         value: "cs"
     },
     {
-        name: "Food Science | วิทยาศาสตร์การอาหาร",
+        name: "Food Science",
+        name_localizations: { th: 'วิทยาศาสตร์การอาหาร' },
         value: "fs"
     },
     {
-        name: "Chinese | ภาษาจีน",
+        name: "Chinese",
+        name_localizations: { th: 'ภาษาจีน' },
         value: "ch"
     },
     {
-        name: "Occupation | การงานอาชีพ",
+        name: "Occupation",
+        name_localizations: { th: 'การงานอาชีพ' },
         value: "oc"
     },
     {
-        name: "Buddhism | พุทธศาสนา",
+        name: "Buddhism",
+        name_localizations: { th: 'พุทธศาสนา' },
         value: "bu"
     },
     {
-        name: "Society Edu | สังคมศึกษา",
+        name: "Society Education",
+        name_localizations: { th: 'สังคมศึกษา' },
         value: "so"
     },
 ]
@@ -113,6 +125,7 @@ client.on("interactionCreate", async interaction => {
 });
 
 client.on('messageCreate', message => {
+    if (message.author.bot) return;
     if (message.mentions.users.has(client.user.id) || message.mentions.users.has("1118174109801656451")) { 
         const presence = message.guild.members.cache.get("1118174109801656451").presence;
         if (!(presence && presence.status) || presence.status === "offline") {
